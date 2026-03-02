@@ -85,7 +85,7 @@ st.sidebar.header("Simulation Parameters")
 # Replaced st.sidebar.slider with st.sidebar.number_input
 start_value = st.sidebar.number_input("Starting Portfolio Value", min_value=0, max_value=100_000_000, value=0, step=100_000)
 current_age = st.sidebar.slider("Current Age", 25, 80, step=1)
-retirement_age = st.sidebar.slider("Retirement Age", 30, 85, 60, step=1)
+retirement_age = st.sidebar.slider("Retirement Age", 30, 85, step=1)
 end_age = st.sidebar.slider("End Age", 50, 100, 90, step=1)
 
 annual_contribution = st.sidebar.slider("Annual Contribution until Retirement", 0, 1_000_000, 0, step=25_000)
