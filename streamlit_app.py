@@ -88,9 +88,9 @@ current_age = st.sidebar.slider("Current Age", 25, 80, 50, step=1)
 retirement_age = st.sidebar.slider("Retirement Age", 30, 85, 60, step=1)
 end_age = st.sidebar.slider("End Age", 50, 100, 90, step=1)
 
-annual_contribution = st.sidebar.slider("Annual Contribution until Retirement", 0, 2_000_000, 0, step=25_000)
-annual_spending = st.sidebar.slider("Annual Spending after Retirement", 0, 2_000_000, 0, step=25_000)
-post_retirement_contribution = st.sidebar.slider("Annual Contribution after Retirement", 0, 2_000_000, 0, step=25_000)
+annual_contribution = st.sidebar.slider("Annual Contribution until Retirement", 0, 1_000_000, 0, step=25_000)
+annual_spending = st.sidebar.slider("Annual Spending after Retirement", 0, 1_000_000, 0, step=25_000)
+post_retirement_contribution = st.sidebar.slider("Annual Contribution after Retirement", 0, 1_000_000, 0, step=25_000)
 post_retirement_contribution_end_age = st.sidebar.slider("End Age for Post-Retirement Contributions", retirement_age, end_age, end_age, step=1)
 
 exp_return = st.sidebar.slider("Expected Annual Return", 0.00, 0.12, 0.06, step=0.0025, format="%.2f%%")
