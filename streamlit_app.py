@@ -83,21 +83,21 @@ st.title("Financial Monte Carlo Simulation")
 st.sidebar.header("Simulation Parameters")
 
 # Replaced st.sidebar.slider with st.sidebar.number_input
-start_value = st.sidebar.number_input("Starting Portfolio Value", min_value=0, max_value=100_000_000, value=0, step=100_000)
+start_value = st.sidebar.number_input("Starting Portfolio Value", min_value=0, max_value=100_000_000, value=0, step=100_000, format="%,d")
 current_age = st.sidebar.slider("Current Age", 0, 80, 0, step=1)
 retirement_age = st.sidebar.slider("Retirement Age", 0, 85, 0, step=1)
 end_age = st.sidebar.slider("End Age", 50, 100, 90, step=1)
 
-annual_contribution = st.sidebar.slider("Annual Contribution until Retirement", 0, 2_000_000, 0, step=25_000)
-annual_spending = st.sidebar.slider("Annual Spending after Retirement", 0, 2_000_000, 0, step=25_000)
-post_retirement_contribution = st.sidebar.slider("Annual Contribution after Retirement", 0, 2_000_000, 0, step=25_000)
+annual_contribution = st.sidebar.slider("Annual Contribution until Retirement", 0, 2_000_000, 0, step=25_000, format="%,d")
+post_retirement_contribution = st.sidebar.slider("Annual Contribution after Retirement", 0, 2_000_000, 0, step=25_000, format="%,d") # Reordered
+annual_spending = st.sidebar.slider("Annual Spending after Retirement", 0, 2_000_000, 0, step=25_000, format="%,d")
 post_retirement_contribution_end_age = st.sidebar.slider("End Age for Post-Retirement Contributions", retirement_age, end_age, end_age, step=1)
 
 exp_return = st.sidebar.slider("Expected Annual Return", 0.00, 0.12, 0.06, step=0.0025, format="%.2f%%")
 volatility = st.sidebar.slider("Annual Volatility", 0.02, 0.30, 0.12, step=0.005, format="%.2f%%")
 inflation = st.sidebar.slider("Annual Inflation Rate", 0.00, 0.06, 0.03, step=0.0025, format="%.2f%%")
 
-n_sims = st.sidebar.slider("Number of Simulations", 2_000, 80_000, 20_000, step=2_000)
+n_sims = st.sidebar.slider("Number of Simulations", 2_000, 80_000, 20_000, step=2_000, format="%,d")
 model = st.sidebar.selectbox("Return Model", ["Lognormal", "Normal (clipped)"], index=0)
 seed = st.sidebar.number_input("Random Seed", value=42, step=1)
 
@@ -163,7 +163,7 @@ if st.sidebar.button("Run Simulation"):
     if annual_spending > 0:
         fig3, ax3 = plt.subplots(figsize=(10, 6))
         # Invert ruin_by_year to show probability of success
-        prob_success_by_year = 1.0 - ruin_by_year
+        prob_success_by_by_year = 1.0 - ruin_by_year
         ax3.plot(ages, prob_success_by_year, linewidth=2)
         ax3.axvline(retire_age_eff, linestyle="--", linewidth=2, color='red')
         ax3.set_title("Probability of Success Over Time")
