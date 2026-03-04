@@ -83,7 +83,7 @@ st.title("Financial Monte Carlo Simulation")
 st.sidebar.header("Simulation Parameters")
 
 # Replaced st.sidebar.slider with st.sidebar.number_input
-start_value = st.sidebar.number_input("Starting Portfolio Value", min_value=0, max_value=100_000_000, value=0, step=100_000, format="%,d")
+start_value = st.sidebar.number_input("Starting Portfolio Value", min_value=0, max_value=100_000_000, value=0, step=100_000) # Removed format=",%d"
 current_age = st.sidebar.slider("Current Age", 0, 80, 0, step=1)
 retirement_age = st.sidebar.slider("Retirement Age", 0, 85, 0, step=1)
 end_age = st.sidebar.slider("End Age", 50, 100, 90, step=1)
@@ -163,7 +163,7 @@ if st.sidebar.button("Run Simulation"):
     if annual_spending > 0:
         fig3, ax3 = plt.subplots(figsize=(10, 6))
         # Invert ruin_by_year to show probability of success
-        prob_success_by_by_year = 1.0 - ruin_by_year
+        prob_success_by_year = 1.0 - ruin_by_year
         ax3.plot(ages, prob_success_by_year, linewidth=2)
         ax3.axvline(retire_age_eff, linestyle="--", linewidth=2, color='red')
         ax3.set_title("Probability of Success Over Time")
