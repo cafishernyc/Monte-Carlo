@@ -3,9 +3,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 def simulate_paths(
-    start_value=20_000_000,
-    current_age=50,
-    retirement_age=60,
+    start_value=0,
+    current_age=0,
+    retirement_age=0,
     end_age=90,
     n_sims=20_000,
     exp_return=0.06,
